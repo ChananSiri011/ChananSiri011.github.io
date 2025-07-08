@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>เกี่ยวกับเรา | Aunchan Stationery Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Mitr', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2a1745; background: #fff; min-height: 100vh; display: flex; flex-direction: column; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; padding-left: 0; margin: 0; }
+        .nav-links a { text-decoration: none; color: #5b21b6; background: linear-gradient(135deg, #ede9fe 60%, #c4b5fd 100%); font-weight: 600; padding: 0.65rem 1.6rem; border-radius: 2rem; border: 1.5px solid #7c3aed; box-shadow: 0 2px 12px rgba(92, 36, 170, 0.10); font-size: 1.08rem; letter-spacing: 0.5px; transition: all 0.22s cubic-bezier(.4,0,.2,1); position: relative; overflow: hidden; }
+        .nav-links a.active, .nav-links a:hover, .nav-links a:focus { background: linear-gradient(135deg, #a259e6 60%, #7c3aed 100%); color: #fff; box-shadow: 0 4px 24px rgba(124, 58, 237, 0.18); border-color: #7c3aed; transform: translateY(-2px) scale(1.04); z-index: 1; }
+        header { background: #fff; box-shadow: 0 2px 20px rgba(124, 58, 237, 0.10); display: flex; align-items: center; padding: 0.5rem 2.5rem; height: 140px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; position: sticky; top: 0; z-index: 100; }
+        footer { background: rgba(92, 36, 170, 0.10); padding: 2rem 0; text-align: center; margin-top: 2rem; flex-shrink: 0; }
+        main { flex: 1 0 auto; }
+        @media (max-width: 768px) { .nav-links { flex-wrap: wrap; gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="height: 130px; width: 130px; min-width: 120px; max-width: 160px; display: flex; align-items: center; justify-content: center; background: transparent; margin-right: 2.5rem;">
+            <img src="image/Aun.png" alt="แบนเนอร์ร้าน" style="height: 130px; width: 130px; max-width: 130px; max-height: 130px; object-fit: contain; display: block; background: transparent;">
+        </div>
+        <div style="font-size: 2.1rem; font-weight: bold; color: #5B3F92; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(91,63,146,0.10); white-space: nowrap; margin-right: 2.5rem;">
+            Aunchan Stationery Shop
+        </div>
+        <ul class="nav-links" style="margin-left: auto;">
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="products.html">สินค้า</a></li>
+          <li><a href="about.html">บทความ</a></li>
+          <li><a href="FAQ.html">คำถามที่พบบ่อย</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+        </ul>
+    </header>
+    <main>
+        <section class="about-section" style="max-width: 900px; margin: 3rem auto 2.5rem auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(124,58,237,0.13); padding: 2.5rem 2.2rem 2rem 2.2rem; border: 1.5px solid #ede9fe;">
+            <h1 style="font-size: 2.3rem; font-weight: 700; color: #5b21b6; margin-bottom: 1.2rem; text-align: left;">เกี่ยวกับเรา</h1>
+            <div style="font-size: 1.18rem; color: #444; margin-bottom: 1.7rem; text-align: left; max-width: 700px;">
+                <b>Aunchan Stationery Shop</b> คือร้านเครื่องเขียนออนไลน์ที่มุ่งเน้นคัดสรรสินค้าคุณภาพดี ราคาย่อมเยา เพื่อสนับสนุนการเรียนรู้และการทำงานของทุกคน<br><br>
+                เราเชื่อว่าการมีเครื่องเขียนดี ๆ จะช่วยสร้างแรงบันดาลใจและประสบการณ์ที่ดีในการเรียนและทำงาน ทีมงานของเราคัดเลือกสินค้าอย่างพิถีพิถัน ทั้งปากกา ดินสอ ยางลบ สมุด ไม้บรรทัด และอุปกรณ์สำนักงานอื่น ๆ<br><br>
+                <b>จุดเด่นของเรา:</b><br>
+                - สินค้าคุณภาพแท้ 100%<br>
+                - บริการรวดเร็ว ใส่ใจลูกค้า<br>
+                - จัดส่งทั่วประเทศ<br>
+                - มีโปรโมชั่นและส่วนลดพิเศษตลอดปี<br>
+            </div>
+        </section>
+        <!-- กล่องข้อความเพิ่มเติม 1 -->
+        <section class="about-section" style="max-width: 900px; margin: 0 auto 2.5rem auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(124,58,237,0.10); padding: 2.2rem 2.2rem 1.7rem 2.2rem; border: 1.5px solid #ede9fe;">
+            <h2 style="font-size: 1.6rem; font-weight: 600; color: #7c3aed; margin-bottom: 1rem; text-align: left;">พันธกิจ</h2>
+            <div style="font-size: 1.13rem; color: #444; margin-bottom: 1.2rem; text-align: left; max-width: 700px;">
+                เรามุ่งมั่นที่จะเป็นส่วนหนึ่งในการสนับสนุนการศึกษาและการทำงานของคนไทยทุกวัย ด้วยการนำเสนอเครื่องเขียนและอุปกรณ์สำนักงานที่มีคุณภาพในราคาที่เข้าถึงได้ง่าย<br><br>
+            </div>
+        </section>
+        <!-- กล่องข้อความเพิ่มเติม 2 -->
+        <section class="about-section" style="max-width: 900px; margin: 0 auto 2.5rem auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(124,58,237,0.10); padding: 2.2rem 2.2rem 1.7rem 2.2rem; border: 1.5px solid #ede9fe;">
+            <h2 style="font-size: 1.6rem; font-weight: 600; color: #7c3aed; margin-bottom: 1rem; text-align: left;">วิสัยทัศน์</h2>
+            <div style="font-size: 1.13rem; color: #444; margin-bottom: 1.2rem; text-align: left; max-width: 700px;">
+                เราตั้งเป้าที่จะเป็นร้านเครื่องเขียนออนไลน์อันดับหนึ่งในใจลูกค้า ด้วยการพัฒนาบริการและคัดสรรสินค้าใหม่ ๆ อย่างต่อเนื่อง<br><br>
+                พร้อมทั้งสร้างประสบการณ์การซื้อของออนไลน์ที่สะดวก รวดเร็ว และประทับใจที่สุด<br>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div style="width:100%; margin-top:0.7rem; color:#888; font-size:1.05rem; text-align:center; font-weight:400;">
+            ระบบนี้จัดทำโดย บริษัท อัญชัน สเตชันเนอรีช็อป จำกัด<br>
+            &copy; 2025 Aunchan Stationery Shop. สงวนลิขสิทธิ์ทุกประการ
+        </div>
+    </footer>
+</body>
+</html>

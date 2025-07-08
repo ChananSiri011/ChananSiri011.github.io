@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aunchan Stationeryshop - เครื่องเขียนและอุปกรณ์สำนักงาน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mitr', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2a1745;
+            background: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            width: 100%;
+            /* ลบ position: fixed ออก */
+            box-shadow: 0 2px 20px rgba(120, 40, 180, 0.10);
+        }
+
+        .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.nav-container > div {
+    width: 100%;
+}
+
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #7c3aed;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+    text-decoration: none;
+    color: #5b21b6;
+    background: linear-gradient(135deg, #ede9fe 60%, #c4b5fd 100%);
+    font-weight: 600;
+    padding: 0.65rem 1.6rem;
+    border-radius: 2rem;
+    border: 1.5px solid #7c3aed;
+    box-shadow: 0 2px 12px rgba(92, 36, 170, 0.10);
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+    transition: all 0.22s cubic-bezier(.4,0,.2,1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    background: linear-gradient(135deg, #a259e6 60%, #7c3aed 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.18);
+    border-color: #7c3aed;
+    transform: translateY(-2px) scale(1.04);
+    z-index: 1;
+}
+
+
+        /* Hero Section */
+        .hero {
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #7c3aed;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #6d28d9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(92, 36, 170, 0.22);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.28);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: rgba(124, 58, 237, 0.07);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #5b21b6;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.10);
+            border: 1px solid rgba(124, 58, 237, 0.08);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.18);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #7c3aed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 110px;
+            width: 110px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #ede9fe;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .product-icon img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .product-card h3 {
+            color: #5b21b6;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .product-card p {
+            color: #5b21b6;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature h4 {
+            color: #5b21b6;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #5b21b6;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(92, 36, 170, 0.10);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            color: #5b21b6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .products, .features {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .promo-icon {
+            display: inline-block;
+            margin: 0 0.7rem;
+            vertical-align: middle;
+        }
+        @keyframes promo-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+    </style>
+    <header style="background: #fff; box-shadow: 0 2px 20px rgba(124, 58, 237, 0.10); display: flex; align-items: center; padding: 0.5rem 2.5rem; height: 140px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; position: sticky; top: 0; z-index: 100;">
+        <!-- โลโก้ด้านซ้าย -->
+        <div style="height: 130px; width: 130px; min-width: 120px; max-width: 160px; display: flex; align-items: center; justify-content: center; background: transparent; margin-right: 2.5rem;">
+            <img src="image/Aun.png" alt="แบนเนอร์ร้าน" style="height: 130px; width: 130px; max-width: 130px; max-height: 130px; object-fit: contain; display: block; background: transparent;">
+        </div>
+        <!-- ชื่อร้านขวาโลโก้ -->
+        <div style="font-size: 2.1rem; font-weight: bold; color: #5B3F92; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(91,63,146,0.10); white-space: nowrap; margin-right: 2.5rem;">
+            Aunchan Stationery Shop
+        </div>
+        <!-- เมนูหลักใน header -->
+        <ul class="nav-links" style="display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; margin-left: auto;">
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="products.html">สินค้า</a></li>
+          <li><a href="about.html">บทความ</a></li>
+          <li><a href="FAQ.html">คำถามที่พบบ่อย</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+        </ul>
+    </header>
+</head>
+<body>
+
+    <!-- Navigation (ลบเมนูหลักออกจาก nav) -->
+
+
+    <!-- Banner Section -->
+    <section class="banner-ad">
+        <span class="promo-icon promo-icon-left">
+            <img src="image/paperpin.png" alt="โปรโมชั่น" style="height:32px;width:32px;vertical-align:middle;animation: promo-bounce 2.2s infinite alternate;">
+        </span>
+        โปรโมชั่นพิเศษ! ซื้อครบ 500 บาท ส่งฟรีทั่วประเทศ &nbsp;|&nbsp; สมัครสมาชิกวันนี้ รับส่วนลดเพิ่ม 10%
+        <span class="promo-icon promo-icon-right">
+            <img src="image/paperpin.png" alt="โปรโมชั่น" style="height:32px;width:32px;vertical-align:middle;animation: promo-bounce 2.2s infinite alternate;">
+        </span>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-bgtext" style="background:rgba(124,58,237,0.07); border-radius: 18px; padding: 2.2rem 1.5rem 2.2rem 1.5rem; max-width: 700px; margin: 0 auto 0 auto; box-shadow: 0 2px 16px rgba(124,58,237,0.07);">
+                <h1 style="background: none; margin-bottom: 1.2rem;">เครื่องเขียนและอุปกรณ์สำนักงาน</h1>
+                <p style="background: none; margin-bottom: 1.2rem;">เป็นร้านที่ครบครันทุกความต้องการสำหรับงานเขียน งานออฟฟิศ และการศึกษา ด้วยสินค้าคุณภาพในราคาที่เหมาะสม</p>
+                <p style="background: none; font-style: italic; color: #5b21b6; font-weight: 500;">"ทางเลือกมืออาชีพ เพื่อการทำงานที่มีประสิทธิภาพ"</p>
+            </div>
+            <!-- แถบป้ายโฆษณา Banner Auto Slide -->
+            <div class="ad-banner-scroll" id="adBannerScroll">
+                <img src="image/ad1.jpg" alt="โฆษณา 1" class="ad-banner-img">
+                <div class="ad-banner-dots"></div>
+            </div>
+            <button class="scroll-down-btn" id="scrollDownBtn" aria-label="เลื่อนไปยังสินค้าแนะนำ" type="button">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="14" cy="14" r="13" stroke="#7c3aed" stroke-width="2" fill="#fff"/>
+                  <path d="M9 13l5 5 5-5" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <style>
+        .buy-btn {
+            margin-top: 1.2rem;
+            background: linear-gradient(90deg, #7c3aed 70%, #5b21b6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.55rem 1.2rem;
+            font-size: 1.0rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(92, 36, 170, 0.13);
+            cursor: pointer;
+            transition: all 0.18s cubic-bezier(.4,0,.2,1);
+            min-width: 90px;
+        }
+        .buy-btn:hover, .buy-btn:focus {
+            background: linear-gradient(90deg, #5b21b6 70%, #7c3aed 100%);
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(92, 36, 170, 0.22);
+            transform: translateY(-2px) scale(1.05);
+            outline: 2px solid #5b21b6;
+            outline-offset: 2px;
+        }
+        .banner-ad {
+            width: 100%;
+            background: linear-gradient(90deg, #a259e6 70%, #7c3aed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.2rem 0 1.2rem 0;
+            margin: 0;
+            box-shadow: 0 4px 24px rgba(124,58,237,0.13);
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .ad-banner-scroll {
+            width: 100vw;
+            max-width: 100vw;
+            margin: 2.2rem 0 0 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 320px;
+            background: none;
+            flex-direction: column;
+        }
+        .ad-banner-img {
+            width: 100vw;
+            max-width: 1800px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(124,58,237,0.10);
+            display: block;
+            background: #fff;
+            user-select: none;
+        }
+        .ad-banner-dots {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 18px;
+        }
+        .ad-banner-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #d1c4e9;
+            border: none;
+            cursor: pointer;
+            transition: background 0.18s;
+            outline: none;
+        }
+        .ad-banner-dot.active {
+            background: #7c3aed;
+        }
+        @media (max-width: 900px) {
+            .ad-banner-img { height: 160px; }
+            .ad-banner-scroll { min-height: 160px; }
+        }
+        @media (max-width: 600px) {
+            .ad-banner-img { height: 80px; }
+            .ad-banner-scroll { min-height: 80px; }
+        }
+        .scroll-down-btn {
+            margin: 2.2rem auto 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #7c3aed;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            box-shadow: 0 2px 12px rgba(124,58,237,0.10);
+            cursor: pointer;
+            transition: background 0.18s, border 0.18s, box-shadow 0.18s, transform 0.18s cubic-bezier(.4,0,.2,1);
+            outline: none;
+            position: relative;
+            z-index: 2;
+        }
+        .scroll-down-btn:hover, .scroll-down-btn:focus {
+            background: #ede9fe;
+            border-color: #5b21b6;
+            box-shadow: 0 4px 18px rgba(124,58,237,0.18);
+            transform: scale(1.08);
+        }
+        .scroll-down-btn:active {
+            background: #ede9fe;
+            border-color: #7c3aed;
+            transform: scale(0.96);
+        }
+        .scroll-down-btn svg {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .scroll-down-btn { width: 36px; height: 36px; }
+            .scroll-down-btn svg { width: 22px; height: 22px; }
+        }
+    </style>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">สินค้าแนะนำ</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon"><img src="image/pg1.png" width="100%"></div>
+                    <h3>ปากกาเจล <br>
+                        (Gel Pen)</h3>
+                    <p>UNI ปากกา ปากกาเจล Uni-ball</p>
+                    <button class="buy-btn" data-url="z3.html">สั่งซื้อ</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><img src="image/nb1.png" width="100%"></div>
+                    <h3>สมุด <br>
+                        (note book)</h3>
+                    <p>KAKAO FRIENDS กาเกาเฟรนด์ สมุดริมลวด</p>
+                    <button class="buy-btn" data-url="z8.html">สั่งซื้อ</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><img src="image/pk1.png" width="100%"></div>
+                    <h3>ดินสอกด <br>
+                        (Mechanical Pencil)</h3>
+                    <p>Rotring Visumax ดินสอกด 0.5 มม.</p>
+                    <button class="buy-btn" data-url="z6.html">สั่งซื้อ</button>
+                </div>
+                <div class="product-card" style="grid-column: 2 / span 1;">
+                    <div class="product-icon"><img src="image/pc1.png" width="100%"></div>
+                    <h3>ดินสอไม้ <br>
+                        (Wooden Pencil)</h3>
+                    <p>Master Art ดินสอดำ ดินสอ 2b ลายไม้</p>
+                    <button class="buy-btn" data-url="z2.html">สั่งซื้อ</button>
+        <style>
+            .buy-btn {
+                margin-top: 1.2rem;
+                background: linear-gradient(90deg, #7c3aed 70%, #5b21b6 100%);
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 0.55rem 1.2rem;
+                font-size: 1.0rem;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                box-shadow: 0 2px 10px rgba(92, 36, 170, 0.13);
+                cursor: pointer;
+                transition: all 0.18s cubic-bezier(.4,0,.2,1);
+                min-width: 90px;
+            }
+            .buy-btn:hover, .buy-btn:focus {
+                background: linear-gradient(90deg, #5b21b6 70%, #7c3aed 100%);
+                color: #fff;
+                box-shadow: 0 6px 24px rgba(92, 36, 170, 0.22);
+                transform: translateY(-2px) scale(1.05);
+                outline: 2px solid #5b21b6;
+                outline-offset: 2px;
+            }
+            .banner-ad {
+                width: 100%;
+                background: linear-gradient(90deg, #a259e6 70%, #7c3aed 100%);
+                color: #fff;
+                text-align: center;
+                padding: 1.2rem 0 1.2rem 0;
+                margin: 0;
+                box-shadow: 0 4px 24px rgba(124,58,237,0.13);
+                font-size: 1.35rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+            .ad-banner-scroll {
+                width: 100vw;
+                max-width: 100vw;
+                margin: 2.2rem 0 0 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                min-height: 320px;
+                background: none;
+                flex-direction: column;
+            }
+            .ad-banner-img {
+                width: 100vw;
+                max-width: 1800px;
+                height: 320px;
+                object-fit: cover;
+                border-radius: 18px;
+                box-shadow: 0 2px 16px rgba(124,58,237,0.10);
+                display: block;
+                background: #fff;
+                user-select: none;
+            }
+            .ad-banner-dots {
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+                align-items: center;
+                margin-top: 18px;
+            }
+            .ad-banner-dot {
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                background: #d1c4e9;
+                border: none;
+                cursor: pointer;
+                transition: background 0.18s;
+                outline: none;
+            }
+            .ad-banner-dot.active {
+                background: #7c3aed;
+            }
+            @media (max-width: 900px) {
+                .ad-banner-img { height: 160px; }
+                .ad-banner-scroll { min-height: 160px; }
+            }
+            @media (max-width: 600px) {
+                .ad-banner-img { height: 80px; }
+                .ad-banner-scroll { min-height: 80px; }
+            }
+            .scroll-down-btn {
+                margin: 2.2rem auto 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #fff;
+                border: 2px solid #7c3aed;
+                border-radius: 50%;
+                width: 44px;
+                height: 44px;
+                box-shadow: 0 2px 12px rgba(124,58,237,0.10);
+                cursor: pointer;
+                transition: background 0.18s, border 0.18s, box-shadow 0.18s, transform 0.18s cubic-bezier(.4,0,.2,1);
+                outline: none;
+                position: relative;
+                z-index: 2;
+            }
+            .scroll-down-btn:hover, .scroll-down-btn:focus {
+                background: #ede9fe;
+                border-color: #5b21b6;
+                box-shadow: 0 4px 18px rgba(124,58,237,0.18);
+                transform: scale(1.08);
+            }
+            .scroll-down-btn:active {
+                background: #ede9fe;
+                border-color: #7c3aed;
+                transform: scale(0.96);
+            }
+            .scroll-down-btn svg {
+                display: block;
+            }
+            @media (max-width: 600px) {
+                .scroll-down-btn { width: 36px; height: 36px; }
+                .scroll-down-btn svg { width: 22px; height: 22px; }
+            }
+        </style>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <!-- Features Section (removed as requested) -->
+
+    <!-- Footer -->
+    <footer>
+        <div style="width:100%; margin-top:0.7rem; color:#888; font-size:1.05rem; text-align:center; font-weight:400;">
+            ระบบนี้จัดทำโดย บริษัท อัญชัน สเตชันเนอรีช็อป จำกัด<br>
+            &copy; 2025 Aunchan Stationery Shop. สงวนลิขสิทธิ์ทุกประการ
+        </div>
+    </footer>
+
+    <script>
+        // Banner Auto Slide + Dot Navigation + Swipe/Drag
+        (function() {
+            const banner = document.getElementById('adBannerScroll');
+            const img = banner.querySelector('.ad-banner-img');
+            const dotsContainer = banner.querySelector('.ad-banner-dots');
+            const images = [
+                {src: 'image/kosa.png', alt: 'โฆษณา 1'},
+                {src: 'image/kosa1.png', alt: 'โฆษณา 2'},
+                {src: 'image/kosa2.png', alt: 'โฆษณา 3'}
+            ];
+            let current = 0;
+            let timer = null;
+            let isTransitioning = false;
+
+            // เพิ่ม CSS transition ให้กับภาพ (fade-in-out แบบ ultra smooth และช้าขึ้นอีก)
+            img.style.transition = 'opacity 2.2s cubic-bezier(.4,0,.2,1)';
+            img.style.opacity = '1';
+
+            function showImage(idx, smooth = true) {
+                if (isTransitioning) return;
+                if (smooth) {
+                    isTransitioning = true;
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = images[idx].src;
+                        img.alt = images[idx].alt;
+                        Array.from(dotsContainer.children).forEach((dot, i) => {
+                            dot.classList.toggle('active', i === idx);
+                        });
+                        // รอให้ภาพโหลดเสร็จ (ลด motion sickness)
+                        img.onload = function() {
+                            setTimeout(() => {
+                                img.style.opacity = '1';
+                                setTimeout(() => { isTransitioning = false; }, 2200);
+                            }, 100);
+                        };
+                    }, 600);
+                } else {
+                    img.src = images[idx].src;
+                    img.alt = images[idx].alt;
+                    Array.from(dotsContainer.children).forEach((dot, i) => {
+                        dot.classList.toggle('active', i === idx);
+                    });
+                }
+            }
+            function nextImage() {
+                current = (current + 1) % images.length;
+                showImage(current, true);
+            }
+            function prevImage() {
+                current = (current - 1 + images.length) % images.length;
+                showImage(current, true);
+            }
+            function startAutoSlide() {
+                if (timer) clearInterval(timer);
+                timer = setInterval(() => {
+                    nextImage();
+                }, 12000); // 12 วินาที (ลดความถี่และพักสายตา)
+            }
+            // Dot navigation
+            dotsContainer.innerHTML = '';
+            images.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'ad-banner-dot' + (i === 0 ? ' active' : '');
+                dot.type = 'button';
+                dot.addEventListener('click', () => {
+                    current = i;
+                    showImage(current, true);
+                    startAutoSlide();
+                });
+                dotsContainer.appendChild(dot);
+            });
+            // Swipe/Drag
+            let startX = null;
+            img.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+            });
+            img.addEventListener('touchend', function(e) {
+                if (startX === null) return;
+                let endX = e.changedTouches[0].clientX;
+                if (endX - startX > 40) {
+                    prevImage();
+                    startAutoSlide();
+                } else if (startX - endX > 40) {
+                    nextImage();
+                    startAutoSlide();
+                }
+                startX = null;
+            });
+            // Mouse drag (desktop)
+            let isDragging = false, dragStartX = 0;
+            img.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                dragStartX = e.clientX;
+                img.style.cursor = 'grabbing';
+            });
+            window.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                // ไม่ต้องเลื่อนภาพระหว่าง drag, แค่จับทิศทาง
+            });
+            window.addEventListener('mouseup', function(e) {
+                if (!isDragging) return;
+                let delta = e.clientX - dragStartX;
+                if (delta > 40) {
+                    prevImage();
+                    startAutoSlide();
+                } else if (delta < -40) {
+                    nextImage();
+                    startAutoSlide();
+                }
+                isDragging = false;
+                img.style.cursor = '';
+            });
+            // Auto slide
+            startAutoSlide();
+            // เริ่มต้น
+            showImage(current, false);
+        })();
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Smooth scroll for scroll-down-btn
+        document.getElementById('scrollDownBtn').addEventListener('click', function(e) {
+            const target = document.getElementById('products');
+            if (!target) return;
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset;
+            const startY = window.pageYOffset;
+            const distance = targetY - startY;
+            const duration = 2000; // ms (ช้ากว่าเดิม)
+            let startTime = null;
+            function scrollStep(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // easeInOutCubic
+                const ease = progress < 0.5
+                    ? 4 * progress * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                window.scrollTo(0, startY + distance * ease);
+                if (progress < 1) {
+                    window.requestAnimationFrame(scrollStep);
+                }
+            }
+            window.requestAnimationFrame(scrollStep);
+        });
+
+        // Add hover effect to product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const url = btn.getAttribute('data-url');
+    if (url) window.location.href = url;
+  });
+});
+    </script>
+</body>
+</html>

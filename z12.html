@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>สินค้า | Aunchan Stationery Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mitr', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2a1745;
+            background: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            width: 100%;
+            /* ลบ position: fixed ออก */
+            box-shadow: 0 2px 20px rgba(120, 40, 180, 0.10);
+        }
+
+        .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.nav-container > div {
+    width: 100%;
+}
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #7c3aed;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+    text-decoration: none;
+    color: #5b21b6;
+    background: linear-gradient(135deg, #ede9fe 60%, #c4b5fd 100%);
+    font-weight: 600;
+    padding: 0.65rem 1.6rem;
+    border-radius: 2rem;
+    border: 1.5px solid #7c3aed;
+    box-shadow: 0 2px 12px rgba(92, 36, 170, 0.10);
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+    transition: all 0.22s cubic-bezier(.4,0,.2,1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    background: linear-gradient(135deg, #a259e6 60%, #7c3aed 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.18);
+    border-color: #7c3aed;
+    transform: translateY(-2px) scale(1.04);
+    z-index: 1;
+}
+
+        /* Footer */
+        footer {
+            background: rgba(92, 36, 170, 0.10);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            color: #5b21b6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .promo-icon {
+            display: inline-block;
+            margin: 0 0.7rem;
+            vertical-align: middle;
+        }
+        @keyframes promo-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .banner-ad {
+            width: 100%;
+            background: linear-gradient(90deg, #a259e6 70%, #7c3aed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.2rem 0 1.2rem 0;
+            margin: 0;
+            box-shadow: 0 4px 24px rgba(124,58,237,0.13);
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .ad-banner-scroll {
+            width: 100vw;
+            max-width: 100vw;
+            margin: 2.2rem 0 0 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 320px;
+            background: none;
+            flex-direction: column;
+        }
+        .ad-banner-img {
+            width: 100vw;
+            max-width: 1800px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(124,58,237,0.10);
+            display: block;
+            background: #fff;
+            user-select: none;
+        }
+        .ad-banner-dots {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 18px;
+        }
+        .ad-banner-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #d1c4e9;
+            border: none;
+            cursor: pointer;
+            transition: background 0.18s;
+            outline: none;
+        }
+        .ad-banner-dot.active {
+            background: #7c3aed;
+        }
+        @media (max-width: 900px) {
+            .ad-banner-img { height: 160px; }
+            .ad-banner-scroll { min-height: 160px; }
+        }
+        @media (max-width: 600px) {
+            .ad-banner-img { height: 80px; }
+            .ad-banner-scroll { min-height: 80px; }
+        }
+        .scroll-down-btn {
+            margin: 2.2rem auto 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #7c3aed;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            box-shadow: 0 2px 12px rgba(124,58,237,0.10);
+            cursor: pointer;
+            transition: background 0.18s, border 0.18s, box-shadow 0.18s, transform 0.18s cubic-bezier(.4,0,.2,1);
+            outline: none;
+            position: relative;
+            z-index: 2;
+        }
+        .scroll-down-btn:hover, .scroll-down-btn:focus {
+            background: #ede9fe;
+            border-color: #5b21b6;
+            box-shadow: 0 4px 18px rgba(124,58,237,0.18);
+            transform: scale(1.08);
+        }
+        .scroll-down-btn:active {
+            background: #ede9fe;
+            border-color: #7c3aed;
+            transform: scale(0.96);
+        }
+        .scroll-down-btn svg {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .scroll-down-btn { width: 36px; height: 36px; }
+            .scroll-down-btn svg { width: 22px; height: 22px; }
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <header style="background: #fff; box-shadow: 0 2px 20px rgba(124, 58, 237, 0.10); display: flex; align-items: center; padding: 0.5rem 2.5rem; height: 140px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; position: sticky; top: 0; z-index: 100;">
+        <!-- โลโก้ด้านซ้าย -->
+        <div style="height: 130px; width: 130px; min-width: 120px; max-width: 160px; display: flex; align-items: center; justify-content: center; background: transparent; margin-right: 2.5rem;">
+            <img src="image/Aun.png" alt="แบนเนอร์ร้าน" style="height: 130px; width: 130px; max-width: 130px; max-height: 130px; object-fit: contain; display: block; background: transparent;">
+        </div>
+        <!-- ชื่อร้านขวาโลโก้ -->
+        <div style="font-size: 2.1rem; font-weight: bold; color: #5B3F92; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(91,63,146,0.10); white-space: nowrap; margin-right: 2.5rem;">
+            Aunchan Stationery Shop
+        </div>
+        <!-- เมนูหลักใน header -->
+        <ul class="nav-links" style="display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; margin-left: auto;">
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="products.html">สินค้า</a></li>
+          <li><a href="about.html">บทความ</a></li>
+          <li><a href="FAQ.html">คำถามที่พบบ่อย</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+        </ul>
+    </header>
+
+
+
+
+    <main>
+        <section class="product-detail" id="product-detail">
+            <div class="container">
+                <div class="product-detail-card" style="max-width: 900px; margin: 2.5rem auto 2.5rem auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(124,58,237,0.13); padding: 2.5rem 2.2rem 2rem 2.2rem; border: 1.5px solid #ede9fe; display: flex; flex-direction: row; align-items: flex-start; gap: 2.5rem;">
+                    <div class="product-slider" style="width: 260px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center;">
+                        <div class="slider-img-wrapper" style="width: 210px; height: 210px; position: relative;">
+                            <img id="slider-main-img" src="image/b1.png" alt="ปากกาเจล GRIP X5" style="width: 210px; height: 210px; object-fit: contain; border-radius: 16px; background: #f6f3fd; box-shadow: 0 2px 12px rgba(124,58,237,0.10); cursor: zoom-in;">
+
+                        </div>
+                        <div class="slider-thumbs" style="display: flex; gap: 10px; margin-top: 1.1rem;">
+                            <img src="image/b1.png" alt="ปากกาเจล GRIP X5" class="slider-thumb active" style="width: 48px; height: 48px; object-fit: contain; border-radius: 8px; background: #f6f3fd; box-shadow: 0 1px 4px rgba(124,58,237,0.10); border: 2.5px solid #a259e6; cursor: pointer;">
+                            <img src="image/b2.png" alt="ปากกาเจล GRIP X5 มุมอื่น" class="slider-thumb" style="width: 48px; height: 48px; object-fit: contain; border-radius: 8px; background: #f6f3fd; box-shadow: 0 1px 4px rgba(124,58,237,0.10); border: 2.5px solid #ede9fe; cursor: pointer;">
+                            <img src="image/b3.png" alt="ปากกาเจล GRIP X5 มุมอื่น" class="slider-thumb" style="width: 48px; height: 48px; object-fit: contain; border-radius: 8px; background: #f6f3fd; box-shadow: 0 1px 4px rgba(124,58,237,0.10); border: 2.5px solid #ede9fe; cursor: pointer;">
+                        </div>
+                    </div>
+                    <div style="flex:1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+                        <h1 style="font-size: 2.2rem; font-weight: 700; color: #5b21b6; margin-bottom: 0.7rem; text-align: left;">
+                        แผ่นรองเขียน (Clipboard)</h1>
+                        <div style="color: #6d28d9; font-size: 1.35rem; font-weight: 600; margin-bottom: 0.9rem;">
+                            44 บาท <span style="background: #ede9fe; color: #7c3aed; font-size: 1.08rem; border-radius: 7px; padding: 2px 12px; margin-left: 8px;">
+                            1 ชิ้น</span></div>
+                        <div style="font-size: 1.18rem; color: #444; margin-bottom: 1.3rem; text-align: left; max-width: 420px;">
+                           Bantex แฟ้มหนีบ คลิปบอร์ด แฟ้มใส่เอกสาร แผ่นรองเขียน แฟ้มเอกสาร A4 แนวตั้ง กระดานรองเขียน Clipboard<br><br>
+                            <b>รายละเอียดสินค้า</b> <br>
+                            - แบรนด์ Bantex รุ่น BF7501<br>
+                            - รับประกันคุณภาพและบริการที่เป็นเลิศ<br>
+                            - วัสดุ : พลาสติก PP คลิปหนีบโลหะเคลือบสี แข็งแรงทนทาน ไม่เป็นรอยขีดข่วนง่าย<br>
+                            - สี : เทา, น้ำเงิน<br>
+                            - ลักษณะ: แนวตั้งขนาด A4<br>
+                            - คลิปล็อคเอกสารแน่น ช่วยยึดเอกสารหรือแฟ้มไว้ไม่ให้หลุดออก<br>
+                            - ขนาด A4 รองรับขนาดเอกสาร A4 สำหรับการจัดเก็บเอกสารทั่วไป<br>
+                            - น้ำหนักเบา พกพาง่าย ไม่เพิ่มภาระในการพกพาเอกสาร<br>
+                            - ง่ายต่อการเปิดและปิดคลิปเพื่อเก็บหรือถอดเอกสาร<br>
+                        </div>
+                        <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+                        <button style="background: linear-gradient(90deg, #a259e6 60%, #7c3aed 100%); color: #fff; font-size: 1.08rem; font-weight: 600; border-radius: 8px; padding: 0.7rem 2.2rem; border: none; box-shadow: 0 2px 8px rgba(124,58,237,0.10); cursor: pointer; transition: background 0.18s;" onclick="alert('เพิ่มลงตะกร้าแล้ว!')">เพิ่มลงตะกร้า</button>
+                        <button style="background: #f3e8ff; color: #7c3aed; font-size: 1.08rem; font-weight: 600; border-radius: 8px; padding: 0.7rem 2.2rem; border: none; box-shadow: 0 2px 8px rgba(124,58,237,0.10); cursor: pointer; transition: background 0.18s;" onclick="alert('สินค้านี้ถูกบันทึกในรายการโปรดแล้ว!')">บันทึกในรายการโปรด</button>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div style="width:100%; display:flex; justify-content:center; margin: 2.2rem 0 0 0;">
+        <a href="products.html" style="display: inline-block; background: linear-gradient(90deg, #a259e6 60%, #7c3aed 100%); color: #fff; font-size: 1.08rem; font-weight: 600; border-radius: 8px; padding: 0.7rem 2.2rem; text-decoration: none; box-shadow: 0 2px 8px rgba(124,58,237,0.10); border: none; transition: background 0.18s;">&larr; กลับไปหน้าสินค้า</a>
+    </div>
+    <footer>
+        <div style="width:100%; margin-top:0.7rem; color:#888; font-size:1.05rem; text-align:center; font-weight:400;">
+            ระบบนี้จัดทำโดย บริษัท อัญชัน สเตชันเนอรีช็อป จำกัด<br>
+            &copy; 2025 Aunchan Stationery Shop. สงวนลิขสิทธิ์ทุกประการ
+        </div>
+    </footer>
+    <!-- Image Zoom Overlay -->
+    <div id="img-zoom-overlay" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(40,20,60,0.75); align-items:center; justify-content:center; cursor:zoom-out;">
+      <img id="img-zoom-big" src="" alt="zoom" style="max-width:90vw; max-height:90vh; border-radius:18px; box-shadow:0 8px 40px rgba(124,58,237,0.25); background:#fff;">
+    </div>
+    <script>
+        // สไลด์รูปสินค้า (เปลี่ยนรูปหลักเมื่อคลิก thumbnail หรือออโต้)
+        const sliderThumbs = Array.from(document.querySelectorAll('.slider-thumb'));
+        const mainImg = document.getElementById('slider-main-img');
+        let currentIdx = 0;
+        let autoSlideInterval = null;
+        function setActive(idx) {
+            currentIdx = idx;
+            mainImg.src = sliderThumbs[idx].src;
+            sliderThumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === idx);
+                t.style.borderColor = i === idx ? '#a259e6' : '#ede9fe';
+            });
+        }
+        sliderThumbs.forEach(function(thumb, idx) {
+            thumb.addEventListener('click', function() {
+                setActive(idx);
+                resetAutoSlide();
+            });
+        });
+        function nextSlide() {
+            setActive((currentIdx + 1) % sliderThumbs.length);
+        }
+        function startAutoSlide() {
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 2500); // 2.5 วินาที
+        }
+        function resetAutoSlide() {
+            startAutoSlide();
+        }
+        setActive(0);
+        startAutoSlide();
+        // --- Image Zoom ---
+        const zoomOverlay = document.getElementById('img-zoom-overlay');
+        const zoomBig = document.getElementById('img-zoom-big');
+        mainImg.addEventListener('click', function() {
+            zoomBig.src = mainImg.src;
+            zoomOverlay.style.display = 'flex';
+        });
+        zoomOverlay.addEventListener('click', function() {
+            zoomOverlay.style.display = 'none';
+            zoomBig.src = '';
+        });
+        // Smooth scrolling for navigation links (เฉพาะลิงก์ # เท่านั้น)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // ตรวจสอบว่า href ไม่ใช่ # หรือ #... ที่ไม่มี target จริง
+                const href = this.getAttribute('href');
+                if (href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        // --- End Image Zoom ---
+    </script>
+</body>
+</html>
